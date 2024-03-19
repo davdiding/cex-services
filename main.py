@@ -1,12 +1,9 @@
-from fastapi import FastAPI
 import uvicorn
-app = FastAPI()
 
-# Import and register your routers here
-# Example:
-# from .routers import users, products
-# app.include_router(users.router)
-# app.include_router(products.router)
+from app import app
+from routers.okx_router import router as okx_router
+
+app.include_router(okx_router, prefix="/okx", tags=["okx"])
 
 if __name__ == "__main__":
     uvicorn.run(app, host="0.0.0.0", port=8000)
