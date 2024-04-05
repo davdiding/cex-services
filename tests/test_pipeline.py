@@ -14,3 +14,26 @@ class TestOkxService(IsolatedAsyncioTestCase):
         response = rq.get(url).json()
         self.assertTrue(response["code"] == 0)
         return
+
+    async def test_get_tickers(self):
+        url = base_url + self.prefix + "/get-tickers"
+        response = rq.get(url).json()
+        self.assertTrue(response["code"] == 0)
+        return
+
+
+class TestBinance(IsolatedAsyncioTestCase):
+    async def asyncSetUp(self):
+        self.prefix = "/binance"
+
+    async def test_get_exchange_info(self):
+        url = base_url + self.prefix + "/get-exchange-info"
+        response = rq.get(url).json()
+        self.assertTrue(response["code"] == 0)
+        return
+
+    async def test_get_tickers(self):
+        url = base_url + self.prefix + "/get-tickers"
+        response = rq.get(url).json()
+        self.assertTrue(response["code"] == 0)
+        return

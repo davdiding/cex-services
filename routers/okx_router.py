@@ -1,9 +1,13 @@
+from cex_adaptors.okx import Okx
 from fastapi import APIRouter, Query
 
 from app import app
 from utils import response_helper
 
 router = APIRouter()
+
+app.state.okx_public: Okx
+app.state.okx_private: Okx
 
 
 @router.get("/sync-exchange-info")
